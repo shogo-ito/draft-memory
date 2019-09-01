@@ -2,13 +2,18 @@
 
 @section('content')
 
-    <div class="mt-2">
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="選手名を入力">
-            <button type="button" class="btn btn-light btn-sm">選手検索</button>
+    <div class="m-3 m-4">
+        <div class="row">
+            <input type="text" class="col-auto" placeholder="選手名を入力">
+            <button type="button" class="col-auto btn btn-info btn-sm ml-2">選手検索</button>
         </div>
     </div>
-    <p><a href="#" class="text-danger text-right font-weight-bold h2">選手登録</a>はこちら(選手登録にはユーザ登録をお願いします)</p>
+    <div class="m-3 m-2">
+        <p><a href="#" class="text-danger font-weight-bold h4">選手登録</a>はこちら</p>
+    </div>
+    <div class="m-3 m-2">
+        <p>選手登録は<a href="#" class="text-danger font-weight-bold h4">ユーザ登録</a>をお願いします</p>
+    </div>
     
     @include('card.card')
     
