@@ -12,7 +12,7 @@
         <p><a href="#" class="text-danger font-weight-bold h4">選手登録</a>はこちら</p>
     </div>
     <div class="m-3 m-2">
-        <p>選手登録は<a href="#" class="text-danger font-weight-bold h4">ユーザ登録</a>をお願いします</p>
+        <p>選手登録は{!! link_to_route('signup.get', 'ユーザ登録', [], ['class' => 'text-danger font-weight-bold h4']) !!}をお願いします</p>
     </div>
     
     @include('card.card')
