@@ -3,19 +3,32 @@
 @section('content')
 
     @if(Auth::check())
-        <h3 class="m-3"><span class="text-danger">{{ Auth::user()->name }}</span>様ログイン中</h3>
+        <div class="m-3">
+            <p><span class="h4">{{ Auth::user()->name }}</span>ログイン中</p>
+        </div>
+        
+        <div class="m-3">
+            <p>{!! link_to_route('players.create', '選手登録', [], ['class' => 'text-danger font-weight-bold h4']) !!}をしよう！！</p>
+        </div>
+        
+        <div class="text-center rounded m-4 p-3" style="height: 80px; background: lemonchiffon">
+            <h1 class="font-weight-bold">ドラフト候補</h1>
+        </div>
+        
+        @include('players.players', ['players' => $players])
+        
+    @else
+        <div class="text-center bg-light rounded m-4 p-3">
+            <h2 class="font-weight-bold">
+                ドラフト候補選手を<br>
+                登録しよう！！
+            </h2>
+        </div>
+        <div class="text-center">
+            {!! link_to_route('signup.get', 'ユーザ登録', [], ['class' => 'btn btn-primary mr-2']) !!}
+            {!! link_to_route('login.get', 'ログイン', [], ['class' => 'btn btn-success']) !!}
+        </div>
     @endif
-        <div class="m-3">
-            <div class="row">
-                <input type="text" class="col-auto" placeholder="選手名を入力">
-                <button type="button" class="col-auto btn btn-info btn-sm ml-2">選手検索</button>
-            </div>
-        </div>
-        <div class="m-3">
-            <p>選手登録は{!! link_to_route('signup.get', 'ユーザ登録', [], ['class' => 'text-danger font-weight-bold h4']) !!}をお願いします</p>
-        </div>
-    
-    @include('card.card')
     
 @endsection
     

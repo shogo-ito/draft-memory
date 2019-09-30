@@ -13,16 +13,20 @@ class UsersController extends Controller
         $users = User::orderBy('id', 'desc')->paginate(20);
         
         return view('users.index', [
-            'users' => $users,    
+            'users' => $users,
         ]);
     }
     
     public function show($id)
     {
         $user = User::find($id);
+        $players = $user->players()->orderBy('created_at', 'desc')->paginate(5);
         
-        return view('users.show', [
-            'user' => $user,    
-        ]);
+        $data = [
+            'user' => $user,
+            'players' => $players,
+        ];
+        
+        return view('users.show', $data);
     }
 }

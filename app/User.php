@@ -27,5 +27,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
     
-    
+    public function players()
+    {
+        return $this->hasMany(Player::class);
+    }
 }

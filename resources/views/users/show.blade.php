@@ -2,6 +2,9 @@
 
 @section('content')
 
-    <h3 class="m-3"><span class="text-danger">{{ $user->name }}</span>の詳細</h3>
-
+    <h3 class="m-3"><span class="text-danger">{{ $user->name }}</span>の登録選手一覧</h3>
+    
+    @if (count($players) > 0)
+        @include('players.players', ['players' => $players])
+    @endif
 @endsection

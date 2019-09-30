@@ -15,6 +15,8 @@ class CreatePlayersTable extends Migration
     {
         Schema::create('players', function (Blueprint $table) {
             $table->increments('id');
+            $table->timestamps();
+            $table->integer('user_id')->unsigned()->index();
             $table->string('player_name');
             $table->string('team_type');
             $table->integer('team_year');
@@ -22,14 +24,20 @@ class CreatePlayersTable extends Migration
             $table->string('position');
             $table->integer('height');
             $table->integer('weight');
-            $table->string('dominant_hand');
             $table->string('power');
             $table->string('meeting');
             $table->string('running');
             $table->string('fielding');
             $table->string('total');
             $table->string('comment');
-            $table->timestamps();
+            $table->integer('pace');
+            $table->string('control');
+            $table->string('stamina');
+            $table->string('type_of_pitch');
+            $table->string('dominant_hand_pitch');
+            $table->string('dominant_hand_batting');
+            
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
